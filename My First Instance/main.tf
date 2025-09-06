@@ -3,6 +3,6 @@ resource "aws_instance" "demo1" {
     instance_type = var.instance_type # variable for instance type
 
     tags = {
-        Name = "DemoInstance1"
+        Name = "DemoInstance1" # Tagging the instance with a name 
     }
 }
