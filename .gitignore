@@ -1,0 +1,49 @@
+# ----------------------------------------------------
+# Terraform
+# ----------------------------------------------------
+
+# Ignore all .terraform directories anywhere in repo
+**/.terraform/
+
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Ignore crash logs
+crash.log
+crash.*.log
+
+# Ignore override files (local-only customizations)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore Terraform CLI configuration files
+.terraformrc
+terraform.rc
+
+
+# ----------------------------------------------------
+# OS / Editor specific
+# ----------------------------------------------------
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+
+# JetBrains IDEs
+.idea/
+*.iml
+
+# ----------------------------------------------------
+# Logs
+# ----------------------------------------------------
+*.log
