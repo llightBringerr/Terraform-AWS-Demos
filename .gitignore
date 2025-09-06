@@ -23,6 +23,8 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+# Ignore tfvars files, which are likely to contain sensitive data
+*.tfvars
 
 # ----------------------------------------------------
 # OS / Editor specific
