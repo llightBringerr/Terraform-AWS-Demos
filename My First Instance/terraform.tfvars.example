@@ -1,2 +1,4 @@
+# Create a terraform.tfvars file and declare the values of the variables created
+
 ami_id = "ami-0c4a668b99e68bbde" # Enter the value of your specific ami_id
 instance_type = "t3.micro" # Enter the value of your specific instance_type
