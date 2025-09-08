@@ -7,5 +7,11 @@ variable "ami_id" {
 
 variable "instance_type" {
   description = "The type of instance to use"
-  type        = string
+  type        = map(string)
+
+  default     = {
+    dev     = "t3.micro"
+    staging = ""
+    prod    = ""
+  }
 }
