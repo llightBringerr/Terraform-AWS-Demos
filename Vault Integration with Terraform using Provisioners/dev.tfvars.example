@@ -1,0 +1,5 @@
+ami_id_ubuntu = "ami-02d26659fd82cf299"  # Ubuntu AMI ID for the vault instance
+instance_type = {
+  dev = "t3.micro" # Instance type for the dev environment
+}
+key_name = ""  # Key pair name for SSH access managed by AWS, write yours
