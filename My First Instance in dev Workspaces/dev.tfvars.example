@@ -1,0 +1,8 @@
+# Create a dev.tfvars file and declare the values of the variables created and 
+# Use command terraform plan, apply, destroy mandatory with -var-file="dev.tfvars" to apply these variables
+
+ami_id = "ami-0c4a668b99e68bbde" # Enter the value of your specific ami_id
+
+# For instance_type, the value will be picked from the variable default map based on the workspace name
+# In this case, since the workspace is "dev", the instance_type will be "t3.micro"
+# If you switch to another workspace like "staging" or "prod", you need to update the map with appropriate instance types
