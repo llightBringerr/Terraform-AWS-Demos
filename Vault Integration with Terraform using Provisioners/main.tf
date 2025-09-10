@@ -23,7 +23,7 @@ resource "aws_route_table" "demo_rt" {
 }
 
 resource "aws_route_table_association" "demo_rta" {
-    subnet_id      = aws_subnet.sub1.id # Reference to the subnet created above
+    subnet_id      = aws_subnet.demo_sub1.id # Reference to the subnet created above
     route_table_id = aws_route_table.demo_rt.id # Reference to the route table created above
 }
 
@@ -53,11 +53,11 @@ resource "aws_security_group" "demo_sg" {
     }
 }
 
-resource "aws_instance" "vault_instance" {
+resource "aws_instance" "vaultinstance" {
     ami           = var.ami_id_ubuntu # variable for ubuntu AMI ID
     instance_type = lookup(var.instance_type, terraform.workspace, "t3.micro") # lookup instance type based on workspace, default to t3.micro
-    subnet_id     = aws_subnet.demo_sub1 # Reference to the subnet created above
-    security_groups = [aws_security_group.demo_sg.name] # Reference to the security group created above
+    subnet_id     = aws_subnet.demo_sub1.id # Reference to the subnet created above
+    vpc_security_group_ids = [aws_security_group.demo_sg.id] # Attach the security group created above
     key_name      = var.key_name # variable for the key pair name 
 
     connection {
