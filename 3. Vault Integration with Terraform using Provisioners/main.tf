@@ -62,6 +62,13 @@ resource "aws_security_group" "demo_sg" {
         cidr_blocks = ["0.0.0.0/0"] # Open to all IPs for demonstration purposes
     }
 
+    ingress {
+        from_port   = 80 # Allow HTTP access
+        to_port     = 80
+        protocol    = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
     egress {
         from_port   = 0 # Allow all outbound traffic
         to_port     = 0
@@ -92,6 +99,12 @@ resource "aws_instance" "vault_instance" {
         inline = [
             "sudo apt-get update -y",
             "sudo apt-get install -y unzip",
+            "sudo apt install gpg",
+            "wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg",
+            "gpg --no-default-keyring --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg --fingerprint",
+            "echo \"deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main\" | sudo tee /etc/apt/sources.list.d/hashicorp.list",
+            "sudo apt update -y",
+            "sudo apt install vault", # After this ssh into the instance and start vault with "vault server -dev -dev-listen-address="0.0.0.0:8200"
         ]
     }
 
